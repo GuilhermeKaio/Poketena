@@ -20,7 +20,7 @@ function tweet(pokemon, count) {
 
         T.post('media/metadata/create', meta_params, function (err, data, response) {
             if (!err) {
-                textstatus = `Estamos à ${count} dias em quarentena \r\n\r\n #${pokemon[1]} - ${pokemon[0]}`
+                textstatus = `Estamos hà ${count} dias em quarentena \r\n\r\n #${pokemon[1]} - ${pokemon[0]}`
                 var params = { status: textstatus, media_ids: [mediaIdStr] }
 
                 T.post('statuses/update', params, function (err, data, response) {
