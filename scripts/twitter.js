@@ -15,12 +15,12 @@ function tweet(pokemon, count) {
 
     T.post('media/upload', { media_data: b64content }, function (err, data, response) {
         var mediaIdStr = data.media_id_string
-        var altText = "Pokemon"
+        var altText = pokemon[0]
         var meta_params = { media_id: mediaIdStr, alt_text: { text: altText } }
 
         T.post('media/metadata/create', meta_params, function (err, data, response) {
             if (!err) {
-                textstatus = `Estamos hà ${count} dias em quarentena \r\n\r\n #${pokemon[1]} - ${pokemon[0]}`
+                textstatus = `Estamos há ${count} dias em quarentena \r\n\r\n #${pokemon[1]} - ${pokemon[0]}`
                 var params = { status: textstatus, media_ids: [mediaIdStr] }
 
                 T.post('statuses/update', params, function (err, data, response) {
